@@ -1,10 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Webpack Showcase</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+
+
+    <title>Tip Calculator</title>
 </head>
+
 <body>
-    <h1>Welcome to Class.</h1>
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Tip Calculator</h1>
+    </div>
+    <div class="container">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Bill Amount: $</span>
+            </div>
+            <input id="billInput"
+                   type="text"
+                   class="form-control"
+                   aria-label="Amount">
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Tip: </span>
+            </div>
+            <select class="custom-select"
+                    id="tipSelector">
+                <option value="1">10%</option>
+                <option value="2">15%</option>
+                <option selected
+                        value="3">18%</option>
+                <option value="4">20%</option>
+                <option value="5">25%</option>
+                <option value="6">Custom</option>
+            </select>
+            <div id="customTipContainer"
+                 class="input-group-append d-none">
+                <input id="customTipInput"
+                       type="text"
+                       class="form-control"
+                       aria-label="Amount"
+                       value="0">
+                <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+            <ul class="list-group list-group-flush">
+                <li id="tipAmount"
+                    class="list-group-item">Tip Amount: </li>
+                <li id="billTotal"
+                    class="list-group-item">Total Bill: </li>
+            </ul>
+        </div>
+
+        <div id="alertBox"
+             class="alert alert-danger d-none"
+             role="alert">
+        </div>
+    </div>
+
 </body>
+
 </html>
