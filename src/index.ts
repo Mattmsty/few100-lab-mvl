@@ -3,7 +3,7 @@ import { getTipAmount } from './helpers';
 
 function updateAmounts() {
     if (!validateInputs()) return;
-    var billAmt = parseInt(billInputBox.value);
+    var billAmt = parseFloat(billInputBox.value);
     var tipPercentText = tipSelector.options[tipSelector.selectedIndex].text;
     var tipPercent;
     if (tipPercentText === 'Custom') {
@@ -18,10 +18,10 @@ function updateAmounts() {
 }
 
 function validateInputs(): boolean {
-    if (!/^\d+$/.test(billInputBox.value)) {
+    if (!/^(\d*\.)?\d+$/.test(billInputBox.value)) {
         showWarningElements("bill");
         return false;
-    } else if (!customTipContainer.classList.contains("d-none") && !/^\d+$/.test(customTipInputBox.value)) {
+    } else if (!customTipContainer.classList.contains("d-none") && !/^(\d*\.)?\d+$/.test(customTipInputBox.value)) {
         showWarningElements("custom tip");
         return false;
     }
@@ -41,7 +41,6 @@ function showWarningElements(warningName: string) {
 function toggleCustomTipInput() {
     if (tipSelector.options[tipSelector.selectedIndex].text === "Custom") {
         customTipContainer.classList.remove("d-none");
-        customTipInputBox.innerText = "ENTER TIP PERCENT"
     } else {
         customTipContainer.classList.add("d-none");
     }
